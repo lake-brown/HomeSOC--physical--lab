@@ -33,9 +33,9 @@ This project is being built incrementally, with each phase documented as it is c
                   │                     │
                   ▼                     ▼
           ┌───────────────┐     ┌────────────────┐
-          │ Raspberry Pi  │     │ Lenovo IdeaPad │
-          │ Ubuntu Server │     │ Ubuntu         │
-          │               │     │ SOC Workstation│
+          │ Raspberry Pi  │     │     Ubuntu     │
+          │ Ubuntu Server │     │SOC Workstation │
+          │               │     │                │
           └───────────────┘     └────────────────┘
 ```
 

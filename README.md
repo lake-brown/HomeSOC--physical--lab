@@ -1,19 +1,3 @@
-None selected
-
-Skip to content
-Using Gmail with screen readers
-1 of 1,338
-(no subject)
-Inbox
-
-lakelyne Brown <brownlakelyne@gmail.com>
-Attachments
-6:50 AM (0 minutes ago)
-to me
-
-One attachment
-• Scanned by Gmail
-
 # HomeSOC-Lab
 
 > **Status:** 🚧 In Progress  

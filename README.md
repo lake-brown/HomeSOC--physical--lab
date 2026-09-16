@@ -1,6 +1,7 @@
 # HomeSOC-Lab
 
-> **Status:** 🚧 In Progress  
+> **Status:** 🚧 In Progress
+
 > A hands-on cybersecurity homelab for practicing network segmentation, Linux administration, centralized logging, security monitoring, detection engineering, and incident response.
 
 ## Overview
@@ -13,22 +14,26 @@ This project is being built incrementally, with each phase documented as it is c
 
 ```text
                               Internet
+
                                  │
+
                                  ▼
+
                        ┌──────────────────┐
-                       │Internet Provider │
-                       │   Home Gateway   │
+                       │ Internet / Home  │
+                       │     Gateway      │
+                       │                  │
                        │   Main Network   │
                        └────────┬─────────┘
                                 │
                                 │ WAN
                                 ▼
                        ┌──────────────────┐
-                       │   GL-SFT1200     │
-                       │   Opal Router    │
+                       │  Dedicated Lab   │
+                       │      Router      │
                        │                  │
                        │ Firewall / NAT   │
-                       │ DHCP / Wi-Fi    │
+                       │  DHCP / Wi-Fi    │
                        └────────┬─────────┘
                                 │
                          Private Lab LAN
@@ -49,18 +54,18 @@ This project is being built incrementally, with each phase documented as it is c
 
 ## Hardware
 
-| Device            | Role                                            |
-| ----------------- | ----------------------------------------------- |
-| GL-SFT1200        | Dedicated lab router, firewall, and NAT gateway |
-| Raspberry Pi 3A   | Linux server / monitored endpoint               |
-| Lenovo IdeaPad    | Ubuntu security workstation                     |
-| Internet Provider | Upstream Internet gateway and home network      |
+| Device                  | Role                                                     |
+| ----------------------- | -------------------------------------------------------- |
+| Dedicated Lab Router    | Lab firewall, NAT gateway, DHCP, and wireless networking |
+| Raspberry Pi 3A         | Linux server / monitored endpoint                        |
+| Lenovo IdeaPad          | Ubuntu security workstation                              |
+| Internet / Home Gateway | Upstream Internet connection and home network            |
 
 ## Technology Stack
 
-Network Infrastructure
+### Network Infrastructure
 
-- GL-SFT1200 Opal
+- Dedicated Lab Router
 - Firewall
 - NAT
 - DHCP
@@ -68,18 +73,24 @@ Network Infrastructure
 - Network segmentation
 - SSH
 - TCP/IP
-  Operating Systems
+
+### Operating Systems
+
 - Ubuntu Server
 - Ubuntu Desktop
 - Raspberry Pi
-  Security Monitoring
+
+### Security Monitoring
+
 - Splunk
 - Wazuh
 - Suricata
 - Zeek
 - Wireshark
 - Security Onion
-  Development & Documentation
+
+### Development & Documentation
+
 - Python
 - Bash
 - Git
@@ -110,23 +121,23 @@ Network Infrastructure
 
 ### Phase 1 — Network Infrastructure
 
-Focus: Build and secure the isolated lab network.
+**Focus:** Build and secure the isolated lab network.
 
-- [x] Configure GL-SFT1200 as dedicated lab router
+- [x] Configure dedicated lab router
 - [x] Establish private lab LAN
 - [x] Configure lab wireless network
-- [ ] Review wireless security
-- [ ] Configure/review firewall rules
-- [ ] Verify NAT configuration
-- [ ] Verify DHCP configuration
-- [ ] Update router firmware if required
-- [ ] Create router configuration backup
-- [ ] Test network segmentation
-- [ ] Document network architecture
+- [x] Review wireless security
+- [x] Configure/review firewall rules
+- [x] Verify NAT configuration
+- [x] Verify DHCP configuration
+- [x] Update router firmware if required
+- [x] Create router configuration backup
+- [x] Test network segmentation
+- [x] Document network architecture
 
 ### Phase 2 — Linux Infrastructure & Hardening
 
-Focus: Deploy and secure the Raspberry Pi Ubuntu Server.
+**Focus:** Deploy and secure the Raspberry Pi Ubuntu Server.
 
 - [x] Install Ubuntu Server
 - [x] Connect Raspberry Pi to lab network
@@ -144,7 +155,7 @@ Focus: Deploy and secure the Raspberry Pi Ubuntu Server.
 
 ### Phase 3 — Security Monitoring Infrastructure
 
-Focus: Establish endpoint and network security monitoring.
+**Focus:** Establish endpoint and network security monitoring.
 
 - [ ] Define security telemetry requirements
 - [ ] Document logging architecture
@@ -159,7 +170,7 @@ Focus: Establish endpoint and network security monitoring.
 
 ### Phase 4 — SIEM & SOC Integration
 
-Focus: Centralize security telemetry and build the SOC monitoring layer.
+**Focus:** Centralize security telemetry and build the SOC monitoring layer.
 
 - [ ] Deploy Splunk
 - [ ] Configure data inputs
@@ -175,7 +186,7 @@ Focus: Centralize security telemetry and build the SOC monitoring layer.
 
 ### Phase 5 — Validation, Documentation & Assessment
 
-Focus: Validate the completed infrastructure and document the finished SOC environment.
+**Focus:** Validate the completed infrastructure and document the finished SOC environment.
 
 - [ ] Perform network security validation
 - [ ] Verify firewall and segmentation behavior
@@ -222,9 +233,8 @@ The lab is designed as a separate network behind the existing home gateway.
 ```text
 Home Network
      │
-     │
      ▼
-Lab Router
+Dedicated Lab Router
      │
      ▼
 Private Lab Network
@@ -258,8 +268,11 @@ Example documentation:
 
 ```text
 LAB_ROUTER_IP=<LAB_ROUTER_IP>
+
 SERVER_IP=<SERVER_IP>
+
 WORKSTATION_IP=<WORKSTATION_IP>
+
 HOME_GATEWAY_IP=<HOME_GATEWAY_IP>
 ```
 
@@ -280,10 +293,9 @@ This section will document:
 
 ## Skills Demonstrated
 
-Networking
+### Networking
 
-Network segmentation
-
+- Network segmentation
 - TCP/IP
 - DHCP
 - NAT
@@ -292,7 +304,7 @@ Network segmentation
 - Network troubleshooting
 - Network reconnaissance
 
-Linux
+### Linux
 
 - Ubuntu Server administration
 - SSH
@@ -304,7 +316,7 @@ Linux
 - System logging
 - Linux hardening
 
-Security Operations
+### Security Operations
 
 - SIEM
 - Log analysis
@@ -316,7 +328,7 @@ Security Operations
 - Threat investigation
 - Incident response
 
-Security Tools
+### Security Tools
 
 - Splunk
 - Wazuh
@@ -324,7 +336,7 @@ Security Tools
 - Wireshark
 - Nmap
 
-Documentation
+### Documentation
 
 - Technical documentation
 - Security reports
@@ -338,5 +350,3 @@ Documentation
 **Current focus:** Building the lab network and Raspberry Pi Linux server.
 
 Future updates will document the deployment, configuration, detections, investigations, and lessons learned as the lab develops.
-README.md
-Displaying README.md.

@@ -1,51 +1,52 @@
 # Router Security
 
-## Overview
+**Status:** Complete
 
-The router is the primary security boundary for the HomeSOC-Lab environment.
+The **Router Security** project establishes the network security foundation for the HomeSOC-Lab.
 
-The lab uses a dedicated **GL-SFT1200 Opal** router positioned behind the home router. This creates a separate lab network where security controls can be configured and validated without exposing the home network to lab experimentation.
+A dedicated **Firewall Router** is positioned behind the existing home router to create an isolated lab network. The environment provides controlled Internet access while restricting unnecessary communication between the cybersecurity lab and the home network.
 
-### Network Architecture
+---
+
+## Network Architecture
 
 ```text
-                    Internet
-                       │
-                       ▼
-                ┌──────────────┐
-                │ Home Router  │
-                │   Internet   │
-                └──────┬───────┘
-                       │
-                       ▼
-                ┌──────────────┐
-                │ GL-SFT1200   │
-                │ Opal Router  │
-                │              │
-                │ Firewall/NAT │
-                └──────┬───────┘
-                       │
-                 Private Lab LAN
-                       │
-              ┌────────┴────────┐
-              │                 │
-              ▼                 ▼
-       Ubuntu Lenovo       Raspberry Pi
-        Workstation         Ubuntu Server
+Internet
+   │
+   ▼
+Home Router
+   │
+   ▼
+Firewall Router
+Firewall / NAT / DHCP / Wi-Fi
+   │
+   ▼
+Private Lab Network
+   │
+   ├── Ubuntu Workstation
+   │
+   └── Raspberry Pi
+          Ubuntu Server
 ```
 
-### Security Objectives
+The Firewall Router acts as the primary security boundary for the lab environment.
 
-The router configuration is designed to provide:
+---
 
-- Network isolation from the home network
-- Controlled Internet access for lab systems
+## Security Objectives
+
+The router security project focuses on:
+
+- Network segmentation
+- Firewall configuration
 - Secure wireless access
-- Stateful firewall protection
-- NAT between the lab and upstream network
-- No unnecessary inbound exposure
-- A controlled environment for cybersecurity testing
-- A foundation for Wazuh, Suricata, Splunk, and Wireshark projects
+- Controlled Internet connectivity
+- NAT
+- Minimizing inbound exposure
+- Firmware security
+- Configuration recovery
+- Security validation
+- Network security testing
 
 ---
 
@@ -55,28 +56,25 @@ The router configuration is designed to provide:
 | ----------------------------------------------------------- | ----------- | -------------------------------------------- |
 | [Project 1 — Wireless Security](wireless-security.md)       | ✅ Complete | Secure lab wireless network                  |
 | [Project 2 — Firewall & Network Segmentation](firewall.md)  | ✅ Complete | Firewall configuration and network isolation |
-| [Project 3 — Firmware Security](firmware.md)                | ⏳ Planned  | Router firmware updates and security         |
-| [Project 4 — Configuration Backup](configuration-backup.md) | ⏳ Planned  | Secure router configuration backup           |
-| [Project 5 — Security Validation](security-validation.md)   | ⏳ Planned  | Validate router security controls            |
+| [Project 3 — Firmware Security](firmware.md)                | ✅ Complete | Firmware security and updates                |
+| [Project 4 — Configuration Backup](configuration-backup.md) | ✅ Complete | Secure configuration backup                  |
+| [Project 5 — Security Validation](security-validation.md)   | ✅ Complete | Validate router security controls            |
 
 ---
 
 # Project 1 — Wireless Security
 
-**Objective:** Create a dedicated and secured wireless network for the cybersecurity lab.
+**Status:** ✅ Complete
 
-### Controls
+Established a dedicated and secured wireless network for the cybersecurity lab.
 
+Key areas:
+
+- Wireless security
 - Dedicated lab SSID
-- WPA2/WPA3 wireless security
-- Strong unique wireless password
-- 2.4 GHz support for Raspberry Pi connectivity
-- WPS disabled where available
-- Lab devices connected separately from the home wireless network
-
-### Result
-
-The lab wireless network provides connectivity for authorized lab systems while keeping the cybersecurity environment separate from the normal home wireless network.
+- Secure authentication
+- Raspberry Pi connectivity
+- Separation from home wireless
 
 [View Project 1 Documentation →](wireless-security.md)
 
@@ -84,145 +82,35 @@ The lab wireless network provides connectivity for authorized lab systems while 
 
 # Project 2 — Firewall & Network Segmentation
 
-**Objective:** Configure and validate the router's security boundary between the lab network, upstream home network, and Internet.
+**Status:** ✅ Complete
 
-## Intended Traffic Policy
+Configured the Firewall Router to establish a security boundary between the private lab network and the upstream home network.
 
-| Traffic            | Policy   |
-| ------------------ | -------- |
-| Lab → Internet     | ✅ Allow |
-| Lab → Home Network | 🚫 Block |
-| Home Network → Lab | 🚫 Block |
-| Internet → Lab     | 🚫 Block |
-| Lab → Lab          | ✅ Allow |
+Key areas:
 
-## Firewall Baseline
+- Firewall rules
+- Network segmentation
+- NAT
+- Internet access
+- Upstream network isolation
+- Inbound exposure controls
 
-The following inbound exposure controls were reviewed:
-
-```text
-Port forwarding:        None configured
-Manually opened ports:  None configured
-DMZ:                    Disabled
-Unnecessary services:   Not exposed
-Firewall:               Enabled
-NAT:                    Enabled
-```
-
-No TCP or UDP ports were intentionally opened for inbound access to the lab.
-
-## Network Segmentation Rule
-
-A firewall rule was configured on the Opal to prevent lab devices from reaching private RFC1918 address ranges through the WAN interface.
-
-```text
-Source Zone:       LAN
-Destination Zone:  WAN
-
-Destination:
-10.0.0.0/8
-172.16.0.0/12
-192.168.0.0/16
-
-Action:
-DROP
-```
-
-### Purpose
-
-The rule prevents HomeSOC lab devices from initiating connections to private networks reachable through the Opal WAN interface.
-
-This provides an additional security boundary between the cybersecurity lab and devices located on the upstream Internet Provider network.
-
-Public Internet connectivity remains available.
-
----
-
-## Validation
-
-Testing was performed from the Ubuntu Lenovo workstation connected to the Opal lab network.
-
-### Gateway Verification
-
-The workstation was verified to use the Opal as its default gateway.
-
-```bash
-ip route
-```
-
-The lab workstation uses the Opal LAN interface as its default route.
-
-### Internet Connectivity
-
-External connectivity was verified using a public IP address:
-
-```bash
-ping -c 4 8.8.8.8
-```
-
-**Result:** ✅ Internet connectivity maintained.
-
-DNS connectivity was also tested:
-
-```bash
-ping -c 4 google.com
-```
-
-**Result:** ✅ External connectivity maintained.
-
-### Upstream Gateway
-
-The Internet Provider upstream gateway remained reachable from the lab.
-
-**Result:** ⚠️ Gateway reachable.
-
-This behavior does not by itself indicate that the lab has unrestricted access to the upstream network. The upstream gateway is the next-hop router used by the Opal WAN interface.
-
-### Upstream Host Isolation
-
-A device connected to the Internet Provider network was tested from the HomeSOC lab.
-
-The lab workstation could not reach the tested Internet Provider-side device.
-
-**Result:** 🚫 Upstream host-to-host connectivity blocked.
-
-This confirms that the configured RFC1918 filtering rule is preventing the lab from reaching other private hosts on the upstream network.
-
----
-
-## Security Validation Results
-
-| Test                              | Result       |
-| --------------------------------- | ------------ |
-| Lab uses Opal as gateway          | ✅ Pass      |
-| Lab → Internet                    | ✅ Pass      |
-| Lab → Internet Provider gateway   | ⚠️ Reachable |
-| Lab → Internet Provider-side host | 🚫 Blocked   |
-| WAN → Lab unsolicited access      | 🚫 Blocked   |
-| Unnecessary port forwarding       | ✅ None      |
-| DMZ                               | ✅ Disabled  |
-| Unnecessary inbound ports         | ✅ None      |
-
-### Current Finding
-
-The HomeSOC lab is successfully separated from other hosts on the upstream Internet Provider network while maintaining Internet connectivity.
-
-The upstream gateway remains reachable because it serves as the Opal's next-hop gateway. This is documented as an expected behavior rather than treating gateway reachability alone as evidence of failed segmentation.
+[View Project 2 Documentation →](firewall.md)
 
 ---
 
 # Project 3 — Firmware Security
 
-**Objective:** Ensure the router is running current firmware and document the update process.
+**Status:** ✅ Complete
 
-### Planned Activities
+Reviewed and updated the Firewall Router firmware and verified normal router functionality following the update.
 
-- Identify current firmware version
-- Check for available updates
-- Apply firmware update if required
-- Verify router functionality after the update
-- Document the final firmware version
-- Record the update date
+Key areas:
+
+- Firmware review
+- Firmware updates
+- Post-update verification
+- Router security review
 
 [View Project 3 Documentation →](firmware.md)
 
@@ -230,17 +118,18 @@ The upstream gateway remains reachable because it serves as the Opal's next-hop 
 
 # Project 4 — Configuration Backup
 
-**Objective:** Create a secure backup of the router configuration.
+**Status:** ✅ Complete
 
-### Planned Activities
+Created and securely stored a router configuration backup for recovery purposes.
 
-- Export router configuration
-- Verify backup availability
-- Store backup securely
-- Ensure sensitive configuration data is not committed to GitHub
-- Document the restoration process
+Key areas:
 
-> **Security Note:** Router configuration backups may contain sensitive information and must not be uploaded to the public repository.
+- Configuration archive generation
+- Backup storage
+- Recovery planning
+- Sensitive configuration protection
+
+Router configuration backups are intentionally excluded from GitHub.
 
 [View Project 4 Documentation →](configuration-backup.md)
 
@@ -248,24 +137,81 @@ The upstream gateway remains reachable because it serves as the Opal's next-hop 
 
 # Project 5 — Security Validation
 
-**Objective:** Perform a final security review of the router and verify that the intended security controls are functioning.
+**Status:** ✅ Complete
 
-### Planned Validation
+Performed security validation of the router configuration and segmentation controls.
 
-- Wireless security
-- Firewall configuration
-- Port forwarding
-- Open ports
-- DMZ configuration
-- Network isolation
-- Internet connectivity
-- Upstream network access
-- Administrative access
-- Firmware status
+Key areas:
 
-Results will be documented as part of the final HomeSOC-Lab security assessment.
+- Nmap scanning
+- Firewall validation
+- Network isolation testing
+- Internet connectivity testing
+- Inbound exposure review
+- Port forwarding review
+- DMZ review
+- Administrative access review
+
+Testing confirmed that the lab maintained Internet connectivity while access to tested hosts on the upstream private network was restricted.
 
 [View Project 5 Documentation →](security-validation.md)
+
+---
+
+# Security Controls
+
+The completed router security phase established the following controls:
+
+```text
+Firewall                  Enabled
+NAT                       Enabled
+Network Segmentation      Enabled
+Lab Internet Access       Enabled
+Port Forwarding           None
+DMZ                       Disabled
+Unnecessary Inbound Ports None
+Configuration Backup      Created
+Security Validation       Completed
+```
+
+---
+
+# Validation Approach
+
+The router was validated using configuration review and controlled testing.
+
+Tools and techniques included:
+
+- Nmap
+- Connectivity testing
+- Firewall rule review
+- Network segmentation testing
+- Service discovery
+- Inbound exposure review
+
+The purpose of validation was to verify that configured security controls behaved as intended.
+
+Detailed testing results are documented in:
+
+[Project 5 — Security Validation](security-validation.md)
+
+---
+
+# Repository Structure
+
+```text
+router/
+├── README.md
+├── wireless-security.md
+├── firewall.md
+├── firmware.md
+├── configuration-backup.md
+└── security-validation.md
+```
+
+The main README provides the project overview.
+
+Each project document contains the detailed configuration, methodology, testing, results, and lessons learned for that specific project.
 
 ---
 
@@ -275,7 +221,7 @@ This repository intentionally excludes sensitive network information.
 
 ### Do Not Commit
 
-- Public IP addresses
+- IP addresses
 - Home network addresses
 - Wi-Fi passwords
 - Router administrator passwords
@@ -284,16 +230,17 @@ This repository intentionally excludes sensitive network information.
 - Private keys
 - MAC addresses
 - Device serial numbers
-- Configuration backups containing credentials
+- Configuration backups containing sensitive information
 - Personal information
 
-Use generalized or sanitized values in screenshots and documentation.
+Use generalized or sanitized values in documentation and screenshots.
 
 ---
 
 # Tools Used
 
-- GL-SFT1200 Opal
+- Firewall Router
+- LuCI
 - Ubuntu Linux
 - Nmap
 - Wireshark
@@ -304,15 +251,33 @@ Use generalized or sanitized values in screenshots and documentation.
 
 # Project Status
 
-**Router Security Phase:** 🚧 In Progress
+**Router Security Phase:** ✅ Complete
 
-**Firewall & Network Segmentation:** ✅ Complete
+All five router security projects have been completed:
 
-The router security phase establishes the network foundation for the remainder of the HomeSOC-Lab.
+```text
+Wireless Security
+       │
+       ▼
+Firewall & Segmentation
+       │
+       ▼
+Firmware Security
+       │
+       ▼
+Configuration Backup
+       │
+       ▼
+Security Validation
+       │
+       ▼
+   ✅ COMPLETE
+```
 
-Future work will build on this foundation with:
+The completed router security phase provides the network foundation for the next stage of the HomeSOC-Lab:
 
 - Raspberry Pi endpoint hardening
+- Linux security configuration
 - Network reconnaissance
 - Wireshark traffic investigation
 - Wazuh endpoint monitoring

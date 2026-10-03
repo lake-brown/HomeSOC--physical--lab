@@ -23,9 +23,9 @@ The architecture uses the existing HomeSOC environment to provide a controlled n
               ┌────────┴────────┐
               │                 │
               ▼                 ▼
-       Lenovo Ubuntu       Ubuntuserver
-       IAM Workstation     Raspberry Pi 3A+
-              │            Ubuntu Server
+       Lenovo Ubuntu     Raspberry Pi 3A+
+       IAM Workstation     Ubuntu Server
+              │                 |
               │                 │
               └────── SSH ──────┘
 ```

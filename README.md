@@ -163,25 +163,25 @@ Development and Documentation
 
 ## 🎯 Project Goals
 
-[x] Build an isolated physical cybersecurity lab.
-[x] Configure dedicated lab networking infrastructure.
-[x] Establish a private lab LAN.
-[x] Configure firewall, NAT, and DHCP.
-[x] Implement and test network segmentation.
-[x] Deploy Ubuntu Server on Raspberry Pi.
-[x] Build an isolated Windows virtual environment.
-[x] Configure Windows Server and Active Directory.
-[x] Create test users, groups, and OUs.
-[x] Configure and test Group Policy.
-[x] Develop PowerShell user provisioning scripts.
-[ ] Complete Linux server hardening.
-[ ] Establish centralized logging.
-[ ] Deploy endpoint monitoring.
-[ ] Deploy network security monitoring.
-[ ] Integrate security telemetry into a SIEM.
-[ ] Develop security detections and dashboards.
-[ ] Validate security controls.
-[ ] Complete final documentation and assessment.
+- [x] Build an isolated physical cybersecurity lab.
+- [x] Configure dedicated lab networking infrastructure.
+- [x] Establish a private lab LAN.
+- [x] Configure firewall, NAT, and DHCP.
+- [x] Implement and test network segmentation.
+- [x] Deploy Ubuntu Server on Raspberry Pi.
+- [x] Build an isolated Windows virtual environment.
+- [x] Configure Windows Server and Active Directory.
+- [x] Create test users, groups, and OUs.
+- [x] Configure and test Group Policy.
+- [x] Develop PowerShell user provisioning scripts.
+- [ ] Complete Linux server hardening.
+- [ ] Establish centralized logging.
+- [ ] Deploy endpoint monitoring.
+- [ ] Deploy network security monitoring.
+- [ ] Integrate security telemetry into a SIEM.
+- [ ] Develop security detections and dashboards.
+- [ ] Validate security controls.
+- [ ] Complete final documentation and assessment.
 
 ---
 
@@ -192,16 +192,17 @@ Phase 1 — Network Infrastructure
 Status: Completed
 
 Focus: Build and secure the isolated physical lab network.
-[x] Configure dedicated lab router.
-[x] Establish private lab LAN.
-[x] Configure lab wireless network.
-[x] Review wireless security.
-[x] Configure and review firewall rules.
-[x] Verify NAT configuration.
-[x] Verify DHCP configuration.
-[x] Create router configuration backup.
-[x] Test network segmentation.
-[x] Document network architecture.
+
+- [x] Configure dedicated lab router.
+- [x] Establish private lab LAN.
+- [x] Configure lab wireless network.
+- [x] Review wireless security.
+- [x] Configure and review firewall rules.
+- [x] Verify NAT configuration.
+- [x] Verify DHCP configuration.
+- [x] Create router configuration backup.
+- [x] Test network segmentation.
+- [x] Document network architecture.
 
 Phase 1 Deliverables
 
@@ -222,32 +223,33 @@ Status: In Progress
 Focus: Deploy, administer, and secure the Raspberry Pi Ubuntu Server.
 
 Installation and Configuration
-[x] Install Ubuntu Server.
-[x] Connect Raspberry Pi to lab network.
-[ ] Complete hostname configuration.
-[ ] Document network configuration.
-[ ] Verify administrative access.
-[ ] Create and verify administrative accounts.
-[ ] Verify administrative group membership.
-System Administration
-[ ] Apply and document system updates.
-[ ] Configure file and directory permissions.
-[ ] Review users and groups.
-[ ] Review system services.
-[ ] Review listening services and ports.
-[ ] Configure system logging.
-SSH and Remote Administration
-[ ] Verify SSH configuration.
-[ ] Test secure remote access.
-[ ] Review SSH authentication settings.
-[ ] Harden SSH configuration.
-[ ] Validate remote administrative access.
-Host Security
-[ ] Configure UFW host firewall.
-[ ] Review allowed network connections.
-[ ] Apply Linux security hardening.
-[ ] Validate file permissions.
-[ ] Document system security baseline.
+
+- [x] Install Ubuntu Server.
+- [x] Connect Raspberry Pi to lab network.
+- [ ] Complete hostname configuration.
+- [ ] Document network configuration.
+- [ ] Verify administrative access.
+- [ ] Create and verify administrative accounts.
+- [ ] Verify administrative group membership.
+      System Administration
+- [ ] Apply and document system updates.
+- [ ] Configure file and directory permissions.
+- [ ] Review users and groups.
+- [ ] Review system services.
+- [ ] Review listening services and ports.
+- [ ] Configure system logging.
+      SSH and Remote Administration
+- [ ] Verify SSH configuration.
+- [ ] Test secure remote access.
+- [ ] Review SSH authentication settings.
+- [ ] Harden SSH configuration.
+- [ ] Validate remote administrative access.
+      Host Security
+- [ ] Configure UFW host firewall.
+- [ ] Review allowed network connections.
+- [ ] Apply Linux security hardening.
+- [ ] Validate file permissions.
+- [ ] Document system security baseline.
 
 Phase 2 Deliverables
 
@@ -268,38 +270,39 @@ Status: Completed
 Focus: Build an isolated virtual Windows environment and practice identity and access management.
 
 Virtual Infrastructure
-[x] Create dedicated VMware virtual network.
-[x] Install Windows Server.
-[x] Configure isolated Windows environment.
-[x] Configure test domain.
-[x] Configure DNS for the test domain.
-Active Directory
-[x] Install Active Directory Domain Services.
-[x] Create organizational unit structure.
-[x] Create test users.
-[x] Create security groups.
-[x] Configure user and group management.
-[x] Configure Group Policy.
-[x] Test Group Policy behavior.
-PowerShell Automation
-[x] Create PowerShell provisioning scripts.
-[x] Prepare sample CSV user data.
-[x] Import test users from CSV.
-[x] Automate user account creation.
-[x] Validate created accounts.
-Windows Client Integration
-[x] Configure Windows client VM.
-[x] Join client to test domain.
-[x] Test domain user logons.
-[x] Test group-based access.
-[x] Review Windows security events.
-Documentation
-[x] Document Windows Server installation.
-[x] Document Active Directory configuration.
-[x] Document DNS configuration.
-[x] Document OU and group structure.
-[x] Document PowerShell scripts.
-[x] Document testing and troubleshooting.
+
+- [x] Create dedicated VMware virtual network.
+- [x] Install Windows Server.
+- [x] Configure isolated Windows environment.
+- [x] Configure test domain.
+- [x] Configure DNS for the test domain.
+      Active Directory
+- [x] Install Active Directory Domain Services.
+- [x] Create organizational unit structure.
+- [x] Create test users.
+- [x] Create security groups.
+- [x] Configure user and group management.
+- [x] Configure Group Policy.
+- [x] Test Group Policy behavior.
+      PowerShell Automation
+- [x] Create PowerShell provisioning scripts.
+- [x] Prepare sample CSV user data.
+- [x] Import test users from CSV.
+- [x] Automate user account creation.
+- [x] Validate created accounts.
+      Windows Client Integration
+- [x] Configure Windows client VM.
+- [x] Join client to test domain.
+- [x] Test domain user logons.
+- [x] Test group-based access.
+- [x] Review Windows security events.
+      Documentation
+- [x] Document Windows Server installation.
+- [x] Document Active Directory configuration.
+- [x] Document DNS configuration.
+- [x] Document OU and group structure.
+- [x] Document PowerShell scripts.
+- [x] Document testing and troubleshooting.
 
 Phase 3 Deliverables
 
@@ -322,31 +325,32 @@ Status: Planned
 Focus: Establish endpoint and network security monitoring.
 
 Telemetry Planning
-[ ] Define security telemetry requirements.
-[ ] Identify monitored endpoints.
-[ ] Identify relevant network traffic.
-[ ] Document logging architecture.
-[ ] Define monitoring objectives.
-Endpoint Monitoring
-[ ] Deploy Wazuh.
-[ ] Configure endpoint monitoring.
-[ ] Connect monitored Linux endpoint.
-[ ] Evaluate Windows endpoint monitoring.
-[ ] Verify security event collection.
-[ ] Review endpoint alerts.
-Network Monitoring
-[ ] Deploy Suricata.
-[ ] Configure network monitoring.
-[ ] Evaluate Zeek deployment.
-[ ] Review network security events.
-[ ] Validate network telemetry visibility.
-Documentation
-[ ] Document monitoring architecture.
-[ ] Document endpoint configuration.
-[ ] Document network monitoring configuration.
-[ ] Document collected security events.
-[ ] Validate telemetry visibility.
-Phase 4 Deliverables
+
+- [ ] Define security telemetry requirements.
+- [ ] Identify monitored endpoints.
+- [ ] Identify relevant network traffic.
+- [ ] Document logging architecture.
+- [ ] Define monitoring objectives.
+      Endpoint Monitoring
+- [ ] Deploy Wazuh.
+- [ ] Configure endpoint monitoring.
+- [ ] Connect monitored Linux endpoint.
+- [ ] Evaluate Windows endpoint monitoring.
+- [ ] Verify security event collection.
+- [ ] Review endpoint alerts.
+      Network Monitoring
+- [ ] Deploy Suricata.
+- [ ] Configure network monitoring.
+- [ ] Evaluate Zeek deployment.
+- [ ] Review network security events.
+- [ ] Validate network telemetry visibility.
+      Documentation
+- [ ] Document monitoring architecture.
+- [ ] Document endpoint configuration.
+- [ ] Document network monitoring configuration.
+- [ ] Document collected security events.
+- [ ] Validate telemetry visibility.
+      Phase 4 Deliverables
 
 - Endpoint monitoring infrastructure.
 - Network monitoring infrastructure.
@@ -363,31 +367,32 @@ Status: Planned
 Focus: Centralize security telemetry and establish the SOC monitoring layer.
 
 Splunk Deployment
-[ ] Deploy and configure Splunk.
-[ ] Configure data inputs.
-[ ] Establish log collection.
-[ ] Verify log ingestion.
-[ ] Configure relevant data sources.
-Log Forwarding
-[ ] Forward Raspberry Pi system logs.
-[ ] Integrate relevant Linux security events.
-[ ] Evaluate Windows event forwarding.
-[ ] Integrate relevant Windows security events.
-[ ] Integrate Wazuh telemetry.
-[ ] Integrate Suricata telemetry.
-SIEM Development
-[ ] Create security searches.
-[ ] Create monitoring dashboards.
-[ ] Configure initial alerts.
-[ ] Review security events.
-[ ] Develop detection use cases.
-[ ] Tune detections and reduce false positives.
-Integration Validation
-[ ] Validate Wazuh and Splunk integration.
-[ ] Validate Suricata and Splunk integration.
-[ ] Verify event timestamps and fields.
-[ ] Verify log ingestion.
-[ ] Document end-to-end data flow.
+
+- [ ] Deploy and configure Splunk.
+- [ ] Configure data inputs.
+- [ ] Establish log collection.
+- [ ] Verify log ingestion.
+- [ ] Configure relevant data sources.
+      Log Forwarding
+- [ ] Forward Raspberry Pi system logs.
+- [ ] Integrate relevant Linux security events.
+- [ ] Evaluate Windows event forwarding.
+- [ ] Integrate relevant Windows security events.
+- [ ] Integrate Wazuh telemetry.
+- [ ] Integrate Suricata telemetry.
+      SIEM Development
+- [ ] Create security searches.
+- [ ] Create monitoring dashboards.
+- [ ] Configure initial alerts.
+- [ ] Review security events.
+- [ ] Develop detection use cases.
+- [ ] Tune detections and reduce false positives.
+      Integration Validation
+- [ ] Validate Wazuh and Splunk integration.
+- [ ] Validate Suricata and Splunk integration.
+- [ ] Verify event timestamps and fields.
+- [ ] Verify log ingestion.
+- [ ] Document end-to-end data flow.
 
 Phase 5 Deliverables
 
@@ -408,37 +413,38 @@ Status: Planned
 Focus: Validate security controls and document the completed lab.
 
 Network Validation
-[ ] Perform network security validation.
-[ ] Verify firewall behavior.
-[ ] Validate network segmentation.
-[ ] Review exposed services.
-[ ] Document network security findings.
-Linux Validation
-[ ] Validate Linux hardening.
-[ ] Validate SSH security.
-[ ] Review user permissions.
-[ ] Verify firewall configuration.
-[ ] Review system logging.
-Windows Validation
-[ ] Validate Active Directory users.
-[ ] Validate security groups.
-[ ] Validate Group Policy.
-[ ] Review Windows security auditing.
-[ ] Verify domain client functionality.
-Monitoring Validation
-[ ] Verify endpoint telemetry.
-[ ] Verify network telemetry.
-[ ] Verify SIEM ingestion.
-[ ] Test security event visibility.
-[ ] Validate alert generation.
-[ ] Document detection results.
-Final Documentation
-[ ] Finalize architecture diagrams.
-[ ] Review and redact screenshots.
-[ ] Document troubleshooting.
-[ ] Document lessons learned.
-[ ] Complete final lab assessment.
-[ ] Review and organize GitHub repository.
+
+- [ ] Perform network security validation.
+- [ ] Verify firewall behavior.
+- [ ] Validate network segmentation.
+- [ ] Review exposed services.
+- [ ] Document network security findings.
+      Linux Validation
+- [ ] Validate Linux hardening.
+- [ ] Validate SSH security.
+- [ ] Review user permissions.
+- [ ] Verify firewall configuration.
+- [ ] Review system logging.
+      Windows Validation
+- [ ] Validate Active Directory users.
+- [ ] Validate security groups.
+- [ ] Validate Group Policy.
+- [ ] Review Windows security auditing.
+- [ ] Verify domain client functionality.
+      Monitoring Validation
+- [ ] Verify endpoint telemetry.
+- [ ] Verify network telemetry.
+- [ ] Verify SIEM ingestion.
+- [ ] Test security event visibility.
+- [ ] Validate alert generation.
+- [ ] Document detection results.
+      Final Documentation
+- [ ] Finalize architecture diagrams.
+- [ ] Review and redact screenshots.
+- [ ] Document troubleshooting.
+- [ ] Document lessons learned.
+- [ ] Complete final lab assessment.
+- [ ] Review and organize GitHub repository.
 
 Phase 6 Deliverables
 

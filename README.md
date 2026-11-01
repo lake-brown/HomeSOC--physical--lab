@@ -8,50 +8,38 @@ HomeSOC-Lab is an isolated cybersecurity lab built with physical networking, Lin
 The project is being built incrementally, with each component documented as it is configured and tested.
 Lab Architecture
 Physical Lab
-Internet
-|
-v
-+--------------------+
-| Home Gateway |
-| Main Network |
-+---------+----------+
-|
-WAN
-|
-v
-+--------------------+
-| Dedicated Lab |
-| Router |
-| Firewall / NAT |
-| DHCP / Wi-Fi |
-+---------+----------+
-|
-Private Lab LAN
-|
-+----------+----------+
-| |
-v v
-+------------------+ +--------------------+
-| Raspberry Pi | | Lenovo IdeaPad |
-| Ubuntu Server | | Ubuntu Desktop |
-| Linux Server / | | SOC Workstation |
-| Lab Endpoint | | Splunk / Wireshark |
-+------------------+ +--------------------+
-Planned Windows Virtual Lab
-HP Pavilion Gaming Laptop
-VMware Workstation Pro
-|
-Dedicated VMware
-Virtual Network
-|
-+---------+----------+
-| |
-v v
-+-------------------+ +-------------------+
-| Windows Server | | Windows Client |
-| Active Directory | | Domain-Joined |
-| DNS / Group Policy| | Test Endpoint |
-+-------------------+ +-------------------+
+
+```
+                      Internet
+                         |
+                Dedicated Lab Router
+                    Firewall/NAT
+                         |
+                    Private Lab LAN
+                         |
+             +-----------+-----------+
+             |           |           |
+           Lenovo      Raspberry    HP Pavilion
+           Ubuntu      Pi Ubuntu       Host
+           Desktop     Server           |
+             |                       VMware
+         Splunk /                  Workstation
+         Wireshark                     |
+                              +--------+--------+
+                              |                 |
+                         Windows Server    Windows Client
+                         Domain Controller   (Planned)
+                              |
+                         Active Directory
+                              |
+                        Users / Groups / OUs
+                              |
+                        PowerShell Automation
+                              |
+                          Group Policy
+
+```
+
 The Windows virtual environment will initially be kept on a dedicated VMware virtual network, separate from the physical lab network. Any later connection or log forwarding will be planned, configured, and tested deliberately.
 Privacy note: Real IP addresses, Wi-Fi credentials, passwords, MAC addresses, and other sensitive network information are intentionally excluded from this repository. Examples use placeholders or documentation-only values.
 

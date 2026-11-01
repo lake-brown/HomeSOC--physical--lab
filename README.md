@@ -96,7 +96,7 @@ Any future connectivity between the physical and virtual environments will be de
 
 ---
 
-### 💻 Hardware
+## 💻 Hardware
 
 | Device                    | Role                                                 |
 | ------------------------- | ---------------------------------------------------- |
@@ -108,7 +108,7 @@ Any future connectivity between the physical and virtual environments will be de
 
 ---
 
-### 🧰 Technology Stack
+## 🧰 Technology Stack
 
 The following technologies are part of the lab environment or planned implementation.
 
@@ -153,7 +153,7 @@ Network Infrastructure
 
 ## Deployment policy: Tools and technologies are only considered deployed or demonstrated after they have been configured, tested, and documented. Planned technologies are not represented as completed implementations.
 
-### 🎯 Project Goals
+## 🎯 Project Goals
 
 [x] Build an isolated physical cybersecurity lab.
 [x] Configure dedicated lab networking infrastructure.
@@ -177,7 +177,7 @@ Network Infrastructure
 
 ---
 
-### 📋 Project Roadmap
+## 📋 Project Roadmap
 
 Phase 1 — Network Infrastructure
 
@@ -305,7 +305,7 @@ Phase 3 Deliverables
 - Windows client domain integration.
 - Security event review.
 
-## Detailed Windows documentation is maintained separately in the windows-server-ad/ directory.
+### Detailed Windows documentation is maintained separately in the windows-server-ad/ directory.
 
 Phase 4 — Security Monitoring Infrastructure
 
@@ -444,7 +444,7 @@ Phase 6 Deliverables
 
 ---
 
-### 📂 Repository Structure
+## 📂 Repository Structure
 
 The repository is organized to separate the main lab architecture from individual infrastructure projects.
 
@@ -502,7 +502,7 @@ HomeSOC-Lab/
 
 Directories will be populated as the corresponding components are implemented.
 
-### 🪟 Windows Virtual Lab Structure
+## 🪟 Windows Virtual Lab Structure
 
 The Windows Server and Active Directory environment is maintained separately to keep its configuration, scripts, and documentation organized.
 
@@ -557,7 +557,7 @@ Introduce connectivity between environments only when required.
 
 Firewall behavior and network segmentation will be tested and documented rather than assumed.
 
-### 🛡️ Security and Privacy
+## 🛡️ Security and Privacy
 
 This repository intentionally excludes sensitive information.
 
@@ -627,7 +627,7 @@ Monitoring improvements.
 
 Lessons learned will be added as each component is deployed and tested.
 
-🧠 Skills Developed and Demonstrated
+## 🧠 Skills Developed and Demonstrated
 
 The following skills are associated with the project. Their status reflects the actual implementation and validation of each component.
 
@@ -712,7 +712,7 @@ Technical documentation.
 Security reports.
 Investigation reports.
 
-### 📊 Project Status
+## 📊 Project Status
 
 Overall Status: In Progress
 
@@ -743,7 +743,7 @@ The Windows Server and Active Directory environment has been built and documente
 
 Future updates will document verified deployments, configurations, security detections, investigations, and lessons learned.
 
-🚀 Project Philosophy
+## 🚀 Project Philosophy
 
 HomeSOC-Lab is designed around practical implementation rather than simply installing tools or following tutorials.
 

@@ -122,12 +122,16 @@ Network Infrastructure
 - Network segmentation
 - SSH
 - TCP/IP
-  Operating Systems
+
+Operating Systems
+
 - Ubuntu Server
 - Ubuntu Desktop
 - Windows Server
 - Windows Client
-  Identity and Access Management
+
+Identity and Access Management
+
 - Active Directory Domain Services (AD DS)
 - DNS
 - Organizational Units (OUs)
@@ -136,14 +140,18 @@ Network Infrastructure
 - PowerShell administration
 - Automated user provisioning
 - Windows security event auditing
-  Security Monitoring
+
+Security Monitoring
+
 - Splunk
 - Wazuh
 - Suricata
 - Zeek
 - Wireshark
 - Security Onion
-  Development and Documentation
+
+Development and Documentation
+
 - Python
 - Bash
 - PowerShell
